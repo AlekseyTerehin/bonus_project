@@ -13,4 +13,4 @@
 3. Создать образы докера docker-compose build
 4. Запустить приложение docker-compose up -d
 5. Загрузить фикстуры с тестовыми данными включая администратора - логин: admin пароль:admin - docker exec <имя_контейнера_django> python3 /usr/src/app/backend/manage.py  loaddata /usr/src/app/backend/db.json
-6. Выполнить запуск тестов - docker exec <имя_контейнера_django> python3 /usr/src/app/backend/manage.py test .
+6. Выполнить запуск тестов - docker exec <имя_контейнера_django> python3 /usr/src/app/backend/manage.py test /usr/src/app/backend/
