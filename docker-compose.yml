@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  django:
+    build: .
+    command: bash -c "python3 /usr/src/app/backend/manage.py migrate --noinput && python3 /usr/src/app/backend/manage.py runserver 0.0.0.0:8000"
+    container_name: django
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
+    restart: always
+
+  pgdb:
+    image: postgres
+    env_file:
+      - .env
+    container_name: pgdb
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/
+    restart: always
+
+volumes:
+  pgdbdata: null
