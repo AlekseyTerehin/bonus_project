@@ -3,7 +3,6 @@ from datetime import timedelta
 from pathlib import Path
 import environ
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
@@ -11,7 +10,9 @@ env = environ.Env(
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
+
+SECRET_KEY = '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'
 
 DEBUG = True
 
@@ -64,17 +65,27 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('POSTGRES_DB'),
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('POSTGRES_HOST'),
-        'PORT': env('POSTGRES_PORT'),
+        'NAME': 'test',
+        'USER': 'aleksey',
+        'PASSWORD': 'Ie2turp7!',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': env('POSTGRES_DB'),
+#        'USER': env('POSTGRES_USER'),
+#        'PASSWORD': env('POSTGRES_PASSWORD'),
+#        'HOST': env('POSTGRES_HOST'),
+#        'PORT': env('POSTGRES_PORT'),
+#    }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -90,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 LANGUAGE_CODE = 'ru-RU'
 

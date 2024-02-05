@@ -9,7 +9,7 @@ class BonusQuery:
         self.bonus_objects = Bonus.objects.all()
 
     def get_active_bonuses(self) -> QuerySet[Bonus]:
-        return self.bonus_objects.filter(Q(limit=False) | Q(amount_bonus__gt=0))
+        return self.bonus_objects.filter(Q(is_limit=False) | Q(amount_bonus__gt=0))
 
     @staticmethod
     def reduce(bonus: Bonus, amount_reduce: int) -> None:
@@ -17,7 +17,7 @@ class BonusQuery:
         if amount_reduce <= 0:
             raise ValueError('Аттрибут amount_reduce должен быть больше нуля')
 
-        if not bonus.limit:
+        if not bonus.is_limit:
             return
 
         if bonus.amount_bonus - amount_reduce < 0:
