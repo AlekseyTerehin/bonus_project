@@ -21,7 +21,7 @@ class CreateBonusAPIView(APIView):
             program_name = Programs.random_bonus.name
             bonus_constructor = UserBonusConstructor(user=request.user, bonus_name=program_name)
             user_bonuses = [user_bonus.bonus for user_bonus in bonus_constructor.add_user_bonus()]
-            return Response({'get': SerializersBonus(user_bonuses, many=True).data})
+            return Response(SerializersBonus(user_bonuses, many=True).data)
         except ValueError as ex:
             return Response(
                 {
