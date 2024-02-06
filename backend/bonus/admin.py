@@ -8,9 +8,9 @@ from .models import Bonus, UserBonus
 class BonusAdm(admin.ModelAdmin):
     form = BonusForm
     model = Bonus
-    fields = ('bonus_name', 'limit', 'amount_bonus',)
-    list_display = ('bonus_name', 'limit', 'amount_bonus',)
-    list_filter = ('limit',)
+    fields = ('bonus_name', 'is_limit', 'amount_bonus',)
+    list_display = ('bonus_name', 'is_limit', 'amount_bonus',)
+    list_filter = ('is_limit',)
 
 
 @admin.register(UserBonus)

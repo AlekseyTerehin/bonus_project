@@ -21,7 +21,7 @@ class UserBonus(models.Model):
 class Bonus(models.Model):
 
     bonus_name = models.CharField(max_length=100)
-    limit = models.BooleanField(default=True)
+    is_limit = models.BooleanField(default=True)
     amount_bonus = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
