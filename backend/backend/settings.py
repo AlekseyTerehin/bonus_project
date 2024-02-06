@@ -10,9 +10,7 @@ env = environ.Env(
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# SECRET_KEY = env('SECRET_KEY')
-
-SECRET_KEY = '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'
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
@@ -65,27 +63,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'aleksey',
-        'PASSWORD': 'Ie2turp7!',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
     }
-}
-
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': env('POSTGRES_DB'),
-#        'USER': env('POSTGRES_USER'),
-#        'PASSWORD': env('POSTGRES_PASSWORD'),
-#        'HOST': env('POSTGRES_HOST'),
-#        'PORT': env('POSTGRES_PORT'),
-#    }
-# }
+ }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
