@@ -1,6 +1,7 @@
 from typing import List, Sequence
 
 from django.contrib.auth.models import User
+from django.db import transaction
 
 from .bonus_connection import BonusConnection
 from ..dto.bonus_dto import BonusDTO
@@ -18,7 +19,8 @@ class UserBonusConstructor:
 
     def add_user_bonus(self) -> List[UserBonus]:
         bonuses_for_user = self.__cleaned_data()
-        user_bonuses = [self.__save_db(bonus=bonus) for bonus in bonuses_for_user]
+        with transaction.atomic():
+            user_bonuses = [self.__save_db(bonus=bonus) for bonus in bonuses_for_user]
         return user_bonuses
 
     def __cleaned_data(self) -> Sequence[BonusDTO]:
