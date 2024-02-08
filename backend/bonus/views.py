@@ -22,7 +22,7 @@ class CreateBonusAPIView(APIView):
             bonus_constructor = UserBonusConstructor(user=request.user, bonus_name=program_name)
             user_bonuses = [user_bonus.bonus for user_bonus in bonus_constructor.add_user_bonus()]
             return Response(SerializersBonus(user_bonuses, many=True).data)
-        except ValueError as ex:
+        except (ValueError, KeyError) as ex:
             return Response(
                 {
                     "status_code": 400,

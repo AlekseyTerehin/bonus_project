@@ -7,7 +7,7 @@ class RandonBonusValidator(UserBonusValidator):
 
     def is_valid(self, user: User) -> bool:
         is_user_bonus = self.queryset.check_user_bonus(user=user)
-        return bool(not is_user_bonus)
+        return not is_user_bonus
 
     def get_message_error(self) -> str:
         return 'У пользователя уже есть бонус'

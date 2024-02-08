@@ -13,4 +13,7 @@ class BonusConnection:
         connection = {
             'random_bonus': ConnectionBonusDTO(RandomBonusProgram(), RandonBonusValidator(), RandomBonusSaver())
         }
-        return connection[self.__bonus_name]
+        try:
+            return connection[self.__bonus_name]
+        except KeyError:
+            raise KeyError('Программа не найдена')

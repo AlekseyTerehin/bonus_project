@@ -15,5 +15,5 @@ class UserBonusQuery:
 
         return self.user_bonus_objects.create(user=user, bonus=bonus, amount=amount_bonus)
 
-    def check_user_bonus(self, user: User) -> QuerySet[UserBonus]:
-        return self.user_bonus_objects.filter(user=user)
+    def check_user_bonus(self, user: User) -> bool:
+        return bool(self.user_bonus_objects.filter(user=user))
