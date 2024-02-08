@@ -11,7 +11,11 @@ class BonusConnection:
 
     def get_connection(self) -> ConnectionBonusDTO:
         connection = {
-            'random_bonus': ConnectionBonusDTO(RandomBonusProgram(), RandonBonusValidator(), RandomBonusSaver())
+            'random_bonus': ConnectionBonusDTO(
+                program=RandomBonusProgram(),
+                saver=RandomBonusSaver(),
+                validator=RandonBonusValidator(),
+            )
         }
         try:
             return connection[self.__bonus_name]

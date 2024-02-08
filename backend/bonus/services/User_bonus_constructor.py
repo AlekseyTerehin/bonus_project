@@ -14,8 +14,8 @@ class UserBonusConstructor:
         self.user = user
         self.__connection = BonusConnection(bonus_name=bonus_name).get_connection()
         self.__bonus_program = self.__connection.program
-        self.__validator = self.__connection.validator
         self.__saver = self.__connection.saver
+        self.__validator = self.__connection.validator
 
     def add_user_bonus(self) -> List[UserBonus]:
         bonuses_for_user = self.__cleaned_data()

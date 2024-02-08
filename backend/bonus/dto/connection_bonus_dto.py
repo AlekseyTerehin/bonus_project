@@ -8,5 +8,5 @@ from ..services.validators.user_bonus_validator import UserBonusValidator
 @dataclass
 class ConnectionBonusDTO:
     program: AbstractBonusProgram
-    validator: UserBonusValidator
     saver: AbstractSaversUserBonus
+    validator: UserBonusValidator = None
