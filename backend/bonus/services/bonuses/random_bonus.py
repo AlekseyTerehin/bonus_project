@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 
-from backend.bonus.services.bonus_programs.random_bonus_program import RandomBonusProgram
-from backend.bonus.services.savers_bonus.random_bonus_saver import RandomBonusSaver
-from backend.bonus.services.validators.random_user_bonus_validator import RandonBonusValidator
-from backend.bonus.dto.bonus_dto import BonusDTO
-from backend.bonus.models import UserBonus
+from ...services.bonus_programs.random_bonus_program import RandomBonusProgram
+from ...services.savers_bonus.random_bonus_saver import RandomBonusSaver
+from ...services.validators.random_user_bonus_validator import RandonBonusValidator
+from ...dto.bonus_dto import BonusDTO
+from ...models import UserBonus
 
 
 class RandomBonus:
