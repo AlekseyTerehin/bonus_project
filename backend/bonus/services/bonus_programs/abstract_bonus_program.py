@@ -11,5 +11,5 @@ class AbstractBonusProgram:
     def __logic_program(self, *args, **kwargs) -> Any:
         raise NotImplementedError
 
-    def get_bonuses(self) -> Sequence[BonusDTO]:
+    def get_bonus(self) -> Sequence[BonusDTO]:
         raise NotImplementedError

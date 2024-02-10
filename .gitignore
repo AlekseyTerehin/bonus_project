@@ -10,4 +10,3 @@ __pycache__
 
 .env
 .venv
-#settings_develop.py

@@ -19,5 +19,5 @@ class RandomBonusProgram(AbstractBonusProgram):
         except IndexError:
             raise IndexError('Бонусов не осталось')
 
-    def get_bonuses(self) -> Iterable[BonusDTO]:
-        return (BonusDTO(*self.__logic_program()),)
+    def get_bonus(self) -> BonusDTO:
+        return BonusDTO(*self.__logic_program())

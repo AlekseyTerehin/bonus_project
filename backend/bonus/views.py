@@ -4,12 +4,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from .containers import container
 from .serialazers.bonus import SerializersBonus
-from .services.User_bonus_constructor import UserBonusConstructor
-from .services.bonus_programs.program_type import Programs
+from .services.bonuses.random_bonus import RandomBonus
 
 
-class CreateBonusAPIView(APIView):
+class CreateRandomBonusAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     @extend_schema(
@@ -18,10 +18,9 @@ class CreateBonusAPIView(APIView):
     def get(self, request):
         """create random bonus for user"""
         try:
-            program_name = Programs.random_bonus.name
-            bonus_constructor = UserBonusConstructor(user=request.user, bonus_name=program_name)
-            user_bonuses = [user_bonus.bonus for user_bonus in bonus_constructor.add_user_bonus()]
-            return Response(SerializersBonus(user_bonuses, many=True).data)
+            random_bonus = container.resolve(RandomBonus)
+            created_bonus = random_bonus.add_user_bonus(user=request.user)
+            return Response(SerializersBonus(created_bonus.bonus).data)
         except (ValueError, KeyError) as ex:
             return Response(
                 {
