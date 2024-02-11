@@ -4,7 +4,7 @@ from ....models import Bonus
 from ....services.bonus_programs.random_bonus_program import RandomBonusProgram
 
 
-class RandomBonusTestCase(TestCase):
+class RandomBonusProgramTestCase(TestCase):
 
     def setUp(self):
         self.bonus_program = RandomBonusProgram()

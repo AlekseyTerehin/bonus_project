@@ -25,12 +25,12 @@ class RandomBonus:
         return user_bonuses
 
     def __cleaned_data(self, user: User) -> BonusDTO:
-        bonuses_for_user = self.__bonus_program.get_bonus()
+        bonus_for_user = self.__bonus_program.get_bonus()
 
         if not self.__validator.is_valid(user=user):
             raise ValueError(self.__validator.message_error)
 
-        return bonuses_for_user
+        return bonus_for_user
 
     def __save_db(self, bonus: BonusDTO, user: User) -> UserBonus:
         return self.__saver.save(data=bonus, user=user)
