@@ -14,7 +14,6 @@ class UserBonus(models.Model):
         return f'{self.user} - {self.bonus}'
 
     class Meta:
-        unique_together = ('user', 'bonus')
         verbose_name = 'Пользовательский_бонус'
         verbose_name_plural = 'Пользовательские_бонусы'
 
