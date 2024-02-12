@@ -14,13 +14,14 @@ class UserBonus(models.Model):
         return f'{self.user} - {self.bonus}'
 
     class Meta:
+        unique_together = ('user', 'bonus')
         verbose_name = 'Пользовательский_бонус'
         verbose_name_plural = 'Пользовательские_бонусы'
 
 
 class Bonus(models.Model):
 
-    bonus_name = models.CharField(max_length=100)
+    bonus_name = models.CharField(max_length=100, unique=True)
     is_limit = models.BooleanField(default=True)
     amount_bonus = models.IntegerField(blank=True, null=True)
 
