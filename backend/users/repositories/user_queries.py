@@ -13,4 +13,4 @@ class UserQueries:
             'pk', 'date_joined'
         ).annotate(
             bonuses=ArrayAgg('userbonus__bonus__bonus_name')
-        )
+        ).order_by('pk')
