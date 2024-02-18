@@ -1,9 +1,9 @@
-from typing import Iterable, Tuple
+from typing import Tuple
 
-from .abstract_bonus_program import AbstractBonusProgram
 from ...dto.bonus_dto import BonusDTO
 from ...models import Bonus
 from ...repositories.bonus_queries import BonusQuery
+from .abstract_bonus_program import AbstractBonusProgram
 
 
 class RandomBonusProgram(AbstractBonusProgram):

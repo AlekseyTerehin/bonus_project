@@ -26,7 +26,7 @@ class CreateRandomBonusAPIView(APIView):
                 {
                     "status_code": 400,
                     "default_detail": str(ex),
-                    "default_code": 400
+                    "default_code": 400,
                 },
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_400_BAD_REQUEST,
             )

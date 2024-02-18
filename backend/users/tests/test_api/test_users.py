@@ -1,10 +1,9 @@
+from bonus.models import Bonus
+from bonus.repositories.user_bonus_queries import UserBonusQuery
 from django.contrib.auth.models import User
 from django.urls import reverse
 from rest_framework.test import APITestCase
 from rest_framework_simplejwt.tokens import RefreshToken
-
-from bonus.models import Bonus
-from bonus.repositories.user_bonus_queries import UserBonusQuery
 from users.repositories.user_queries import UserQueries
 from users.serializers.users import SerializersUsers
 

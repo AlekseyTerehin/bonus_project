@@ -1,8 +1,7 @@
 from unittest import TestCase
 
+from bonus.models import Bonus, UserBonus
 from django.contrib.auth.models import User
-
-from bonus.models import UserBonus, Bonus
 
 
 class UserBonusModelTestCase(TestCase):

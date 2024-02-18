@@ -7,7 +7,11 @@ from .models import Bonus
 class BonusForm(forms.ModelForm):
     class Meta:
         model = Bonus
-        fields = ('bonus_name', 'is_limit', 'amount_bonus',)
+        fields = (
+            'bonus_name',
+            'is_limit',
+            'amount_bonus',
+        )
 
     def clean(self):
         cleaned_data = super().clean()

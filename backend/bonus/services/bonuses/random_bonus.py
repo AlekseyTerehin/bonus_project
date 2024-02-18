@@ -1,19 +1,19 @@
 from django.contrib.auth.models import User
 
+from ...dto.bonus_dto import BonusDTO
+from ...models import UserBonus
 from ...services.bonus_programs.random_bonus_program import RandomBonusProgram
 from ...services.savers_bonus.random_bonus_saver import RandomBonusSaver
 from ...services.validators.random_user_bonus_validator import RandonBonusValidator
-from ...dto.bonus_dto import BonusDTO
-from ...models import UserBonus
 
 
 class RandomBonus:
 
     def __init__(
-            self,
-            bonus_program: RandomBonusProgram,
-            saver: RandomBonusSaver,
-            validator: RandonBonusValidator
+        self,
+        bonus_program: RandomBonusProgram,
+        saver: RandomBonusSaver,
+        validator: RandonBonusValidator,
     ):
         self.__bonus_program = bonus_program
         self.__saver = saver

@@ -13,5 +13,3 @@ class SerializersUsers(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['pk', 'date_joined', 'bonuses']
-
-

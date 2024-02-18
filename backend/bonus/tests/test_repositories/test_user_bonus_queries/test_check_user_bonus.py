@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from ....models import UserBonus, Bonus
+from ....models import Bonus, UserBonus
 from ....repositories.user_bonus_queries import UserBonusQuery
 
 

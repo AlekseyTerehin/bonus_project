@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.models import QuerySet
 
-from ..models import UserBonus, Bonus
+from ..models import Bonus, UserBonus
 
 
 class UserBonusQuery:

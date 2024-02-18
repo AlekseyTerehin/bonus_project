@@ -1,5 +1,5 @@
-from .abstract_validator import AbstractValidator
 from ...repositories.user_bonus_queries import UserBonusQuery
+from .abstract_validator import AbstractValidator
 
 
 class UserBonusValidator(AbstractValidator):

@@ -1,7 +1,6 @@
+from bonus.models import Bonus, UserBonus
 from django.contrib.auth.models import User
 from django.test import TestCase
-
-from bonus.models import Bonus, UserBonus
 from users.repositories.user_queries import UserQueries
 from users.serializers.users import SerializersUsers
 

@@ -1,8 +1,8 @@
 from drf_spectacular.utils import extend_schema
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework import generics
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import generics
 
 from .repositories.user_queries import UserQueries
 from .serializers.register import RegisterUserSerializer
@@ -27,7 +27,6 @@ class UserRegister(APIView):
 
 
 class UsersAPIView(generics.ListAPIView):
-
     """All users"""
 
     serializer_class = SerializersUsers

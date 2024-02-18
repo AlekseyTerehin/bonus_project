@@ -27,7 +27,11 @@ class ReduceTestCase(TestCase):
 
     def test_limited(self):
         amount_reduce = 1
-        bonus = Bonus.objects.create(bonus_name='тестовый бонус1', is_limit=True, amount_bonus=amount_reduce)
+        bonus = Bonus.objects.create(
+            bonus_name='тестовый бонус1',
+            is_limit=True,
+            amount_bonus=amount_reduce,
+        )
         amount = bonus.amount_bonus
         self.bonus.reduce(bonus=bonus, amount_reduce=amount_reduce)
         result = Bonus.objects.get(bonus_name='тестовый бонус1').amount_bonus

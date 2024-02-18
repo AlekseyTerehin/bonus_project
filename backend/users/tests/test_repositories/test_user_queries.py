@@ -1,7 +1,7 @@
+from bonus.models import Bonus, UserBonus
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from bonus.models import Bonus, UserBonus
 from ...repositories.user_queries import UserQueries
 
 
@@ -16,11 +16,13 @@ class UserQueriesTestCase(TestCase):
         bonus = Bonus.objects.create(bonus_name='тестовый бонус1', is_limit=True, amount_bonus=1)
         UserBonus.objects.create(user=user, bonus=bonus, amount=1)
         result = list(self.user_queries.get_users())
-        expected_result = [{
-            'pk': user.id,
-            'date_joined': user.date_joined,
-            'bonuses': ['тестовый бонус1']
-        }]
+        expected_result = [
+            {
+                'pk': user.id,
+                'date_joined': user.date_joined,
+                'bonuses': ['тестовый бонус1'],
+            }
+        ]
         self.assertEqual(expected_result, result)
 
     def test_one_user_two_bonus(self):
@@ -31,11 +33,13 @@ class UserQueriesTestCase(TestCase):
         UserBonus.objects.create(user=user, bonus=bonus1, amount=1)
         UserBonus.objects.create(user=user, bonus=bonus2, amount=1)
         result = list(self.user_queries.get_users())
-        expected_result = [{
-            'pk': user.id,
-            'date_joined': user.date_joined,
-            'bonuses': ['тестовый бонус1', 'тестовый бонус2']
-        }]
+        expected_result = [
+            {
+                'pk': user.id,
+                'date_joined': user.date_joined,
+                'bonuses': ['тестовый бонус1', 'тестовый бонус2'],
+            }
+        ]
         self.assertEqual(expected_result, result)
 
     def test_two_users(self):
@@ -50,12 +54,12 @@ class UserQueriesTestCase(TestCase):
             {
                 'pk': user1.id,
                 'date_joined': user1.date_joined,
-                'bonuses': ['тестовый бонус1']
+                'bonuses': ['тестовый бонус1'],
             },
             {
                 'pk': user2.id,
                 'date_joined': user2.date_joined,
-                'bonuses': ['тестовый бонус1']
+                'bonuses': ['тестовый бонус1'],
             },
         ]
         self.assertEqual(expected_result, result)
@@ -68,11 +72,5 @@ class UserQueriesTestCase(TestCase):
     def test_no_bonus(self):
         user = User.objects.create(username='Тестер', password='123456')
         result = self.user_queries.get_users()
-        expected_result = [
-            {
-                'pk': user.id,
-                'date_joined': user.date_joined,
-                'bonuses': [None]
-            }
-        ]
+        expected_result = [{'pk': user.id, 'date_joined': user.date_joined, 'bonuses': [None]}]
         self.assertQuerysetEqual(expected_result, result)

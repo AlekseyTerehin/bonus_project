@@ -29,7 +29,7 @@ class RandomBonusTestCase(TestCase):
         random_program = RandomBonus(
             bonus_program=self.bonus_program,
             saver=self.saver,
-            validator=self.validator
+            validator=self.validator,
         )
         result = random_program._RandomBonus__cleaned_data(user=self.mock_user)
         self.assertEqual(expected_result, result)
@@ -41,7 +41,7 @@ class RandomBonusTestCase(TestCase):
         random_program = RandomBonus(
             bonus_program=self.bonus_program,
             saver=self.saver,
-            validator=self.validator
+            validator=self.validator,
         )
         with self.assertRaises(ValueError):
             random_program._RandomBonus__cleaned_data(user=self.mock_user)
@@ -51,7 +51,7 @@ class RandomBonusTestCase(TestCase):
         random_program = RandomBonus(
             bonus_program=self.bonus_program,
             saver=self.saver,
-            validator=self.validator
+            validator=self.validator,
         )
         random_program._RandomBonus__save_db(bonus=self.mock_bonus, user=self.mock_user)
 
@@ -60,6 +60,6 @@ class RandomBonusTestCase(TestCase):
         random_program = RandomBonus(
             bonus_program=self.bonus_program,
             saver=self.saver,
-            validator=self.validator
+            validator=self.validator,
         )
         random_program.add_user_bonus(user=self.mock_user)
